@@ -50,23 +50,37 @@
             }
         </script>
         <style>
-            canvas { background-color: lightgray; }
-            #board { width: 300px; margin: 70px auto; }
+            .row div {
+                float: left;
+                margin: 3px; 
+                background-color: lightgray;
+                width: 70px;
+                height: 70px;
+            }
+
+            #board {
+                width: 250px;
+                margin: 70px auto;
+            }
         </style>
     </head>
     <body>
         <div id="board">
-            <canvas id="c0" width="70" height="70" onClick="canvasClicked(0)"></canvas>
-            <canvas id="c1" width="70" height="70" onClick="canvasClicked(1)"></canvas>
-            <canvas id="c2" width="70" height="70" onClick="canvasClicked(2)"></canvas>
-            <br>
-            <canvas id="c3" width="70" height="70" onClick="canvasClicked(3)"></canvas>
-            <canvas id="c4" width="70" height="70" onClick="canvasClicked(4)"></canvas>
-            <canvas id="c5" width="70" height="70" onClick="canvasClicked(5)"></canvas>
-            <br>
-            <canvas id="c6" width="70" height="70" onClick="canvasClicked(6)"></canvas>
-            <canvas id="c7" width="70" height="70" onClick="canvasClicked(7)"></canvas>
-            <canvas id="c8" width="70" height="70" onClick="canvasClicked(8)"></canvas>
+            <div class="row">
+                <div id="c0" onClick="canvasClicked(0)"></div>
+                <div id="c1" onClick="canvasClicked(1)"></div>
+                <div id="c2" onClick="canvasClicked(2)"></div>
+            </div>
+            <div class="row">
+                <div id="c3" onClick="canvasClicked(3)"></div>
+                <div id="c4" onClick="canvasClicked(4)"></div>
+                <div id="c5" onClick="canvasClicked(5)"></div>
+            </div>
+            <div class="row">
+                <div id="c6" onClick="canvasClicked(6)"></div>
+                <div id="c7" onClick="canvasClicked(7)"></div>
+                <div id="c8" onClick="canvasClicked(8)"></div>
+            </div>
         </div>
     </body>
 </html>
