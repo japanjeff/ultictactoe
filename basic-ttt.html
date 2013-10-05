@@ -8,6 +8,14 @@
                             [0,3,6],[1,4,7],[2,5,8],
                             [0,4,8],[2,4,6]];
 
+            window.onload = init;
+
+            function init() {
+                for(var i=0; i<9; i++) {
+                    getTile(i).addEventListener("click", onTileClicked, false);
+                }
+            }
+
             function checkWinnings(player) {
                 for(var i=0; i<winnings.length; i++) {
                     if(board[winnings[i][0]]==player &&
@@ -22,14 +30,17 @@
 
             function positionPlayed(id) { return board[id] != null; }
 
-            function canvasClicked(id) {
-                if(positionPlayed(id))
+            function onTileClicked(e) {
+                // This feels really hackish... a better way?
+                var position = this.id[1];
+
+                if(positionPlayed(position))
                     return;
 
                 player = (turn % 2);
                 color = (player==0 ? "red" : "blue");
-                getTile(id).style.backgroundColor = color;
-                board[id] = player;
+                this.style.backgroundColor = color;
+                board[position] = player;
                 checkWinnings(player);
                 turn++;
 
@@ -67,19 +78,19 @@
     <body>
         <div id="board">
             <div class="row">
-                <div id="c0" onClick="canvasClicked(0)"></div>
-                <div id="c1" onClick="canvasClicked(1)"></div>
-                <div id="c2" onClick="canvasClicked(2)"></div>
+                <div id="c0"></div>
+                <div id="c1"></div>
+                <div id="c2"></div>
             </div>
             <div class="row">
-                <div id="c3" onClick="canvasClicked(3)"></div>
-                <div id="c4" onClick="canvasClicked(4)"></div>
-                <div id="c5" onClick="canvasClicked(5)"></div>
+                <div id="c3"></div>
+                <div id="c4"></div>
+                <div id="c5"></div>
             </div>
             <div class="row">
-                <div id="c6" onClick="canvasClicked(6)"></div>
-                <div id="c7" onClick="canvasClicked(7)"></div>
-                <div id="c8" onClick="canvasClicked(8)"></div>
+                <div id="c6"></div>
+                <div id="c7"></div>
+                <div id="c8"></div>
             </div>
         </div>
     </body>
